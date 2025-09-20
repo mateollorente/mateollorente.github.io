@@ -1,19 +1,68 @@
 
-    body {
-      background-color: #000;
-      margin: 0;
-      padding: 0;
-      height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
-      display: flex;
-      align-items: center; /* Centra verticalmente los elementos en el cuerpo */
-      justify-content: center; /* Centra horizontalmente los elementos en el cuerpo */
-    }
-    .pedido{
-      width: 80%; /* Ajusta el ancho según sea necesario */
-    margin: 0 auto; /* Centra horizontalmente */
-    text-align: center; /* Centra el texto */
-    }
+   body {
+  background: #394dff; /* color plano inicial */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.celebration {
+  background: linear-gradient(135deg, #394dff, #7ecbff, #9afac5, #5dff6b);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+   
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+   .pedido {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* espacio entre input y botón */
+  margin-top: 20px;
+}
+
+#nombre {
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: 2px solid #ffbb00;
+  outline: none;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+#nombre:focus {
+  border-color: #ff5e00;
+  box-shadow: 0 0 10px rgba(255, 94, 0, 0.5);
+}
+
+#btnEnviar {
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(45deg, #ff758c, #ffbb00);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btnEnviar:hover {
+  background: linear-gradient(45deg, #ff5e00, #ffd700);
+  transform: scale(1.05);
+}
+
     .flower {
+      z-index: 10;
       height: 200px;
       width: 200px;
       margin: 20px auto;
@@ -23,20 +72,22 @@
       justify-content: center;
 
       position: relative;
-      background-color: #000; /* Fondo negro para toda la página */
-
+      background-color: transparent; /* Fondo negro para toda la página */
+      transform: scale(1.5);
       /* Agrega una animación de pulsación */
-      animation: pulsate 2s infinite;
+      /* animation: pulsate 2s infinite; */
     }
     .text-above,
     .text-below {
+      z-index: 10;
         position: absolute;
         text-align: center;
-        color: #fff; /* Color del texto */
+        color: #000000; /* Color del texto */
         font-size: 25px; /* Tamaño del texto */
     }
 
     .text-above {
+      z-index: 10;
         top: -60px; /* Ajusta la posición vertical del texto arriba de la flor */
     }
 
@@ -55,97 +106,167 @@
           transform: scale(1.5);
       }
     }
-      .mid {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        
-        background: radial-gradient(circle, #000, #ff5e00, #000);
-      
-        z-index: 4;
-      
-        background-size: 5px 5px;
-      
-        filter: drop-shadow(0 0 8px #682600);
-      }
-      .Petal1 {
-        position: absolute;
-        left: 40px;
-        z-index: 3;
-      
-        width: 120px;
-        height: 30px;
-        border-radius: 50%;
-      
-        background: radial-gradient(circle, #ff5e00, #ffbb00);
-      
-        filter: drop-shadow(0 0 5px #e05200);
-      }
-      
-      .Petal1.p1 {
-        transform: rotate(22.5deg);
-      }
-      .Petal1.p2 {
-        transform: rotate(67.5deg);
-      }
-      .Petal1.p3 {
-        transform: rotate(110.5deg);
-      }
-      .Petal1.p4 {
-        transform: rotate(157.5deg);
-      }
-      
-      .Petal2 {
-        position: absolute;
-        left: 0;
-        z-index: 2;
-      
-        width: 200px;
-        height: 40px;
-        border-radius: 50%;
-      
-        background: radial-gradient(circle, #ff5e00, #fbd702);
-      
-        filter: drop-shadow(0 0 5px #e05200);
-      }
-      
-      .Petal2.p1 {
-      }
-      
-      .Petal2.p2 {
-        transform: rotate(90deg);
-      }
-      .Petal2.p3 {
-        transform: rotate(45deg);
-      }
-      
-      .Petal2.p4 {
-        transform: rotate(135deg);
-      }
-      
-      .Petal3 {
-        position: absolute;
-        left: 0px;
-        z-index: 1;
-      
-        width: 200px;
-        height: 40px;
-        border-radius: 50%;
-      
-        background: radial-gradient(circle, #ff5e00, #fbd702);
-      
-        filter: drop-shadow(0 0 2px #fbd702);
-      }
-      .Petal3.p1 {
-        transform: rotate(22.5deg);
-      }
-      .Petal3.p2 {
-        transform: rotate(67.5deg);
-      }
-      .Petal3.p3 {
-        transform: rotate(110.5deg);
-      }
-      .Petal3.p4 {
-        transform: rotate(157.5deg);
-      }
-      
+      /* Centro de la flor */
+.mid {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000, #ff5e00, #000);
+  z-index: 4;
+  background-size: 5px 5px;
+  filter: drop-shadow(0 0 8px #682600);
+  position: absolute;
+  left: 75px;
+  top: 75px;
+  cursor: pointer; /* indica que se puede clickear */
+  transition: transform 0.2s ease;
+}
+
+.mid:hover {
+  transform: scale(1.1); /* efecto pequeño al pasar el mouse */
+}
+.mid.playing {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Pétalos tipo 1 */
+.Petal1 {
+  position: absolute;
+  left: 40px;
+  z-index: 3;
+  width: 120px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff5e00, #ffbb00);
+  filter: drop-shadow(0 0 5px #e05200);
+  transform-origin: center;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.Petal1.p1 { --angle: 22.5deg; }
+.Petal1.p2 { --angle: 67.5deg; }
+.Petal1.p3 { --angle: 110.5deg; }
+.Petal1.p4 { --angle: 157.5deg; }
+
+/* Pétalos tipo 2 */
+.Petal2 {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 200px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff5e00, #fbd702);
+  filter: drop-shadow(0 0 5px #e05200);
+  transform-origin: center;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.Petal2.p1 { --angle: 0deg; }
+.Petal2.p2 { --angle: 90deg; }
+.Petal2.p3 { --angle: 45deg; }
+.Petal2.p4 { --angle: 135deg; }
+
+/* Pétalos tipo 3 */
+.Petal3 {
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+  width: 200px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff5e00, #fbd702);
+  filter: drop-shadow(0 0 2px #fbd702);
+  transform-origin: center;
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.Petal3.p1 { --angle: 22.5deg; }
+.Petal3.p2 { --angle: 67.5deg; }
+.Petal3.p3 { --angle: 110.5deg; }
+.Petal3.p4 { --angle: 157.5deg; }
+
+
+
+/* Animación de los pétalos */
+@keyframes sway {
+  from {
+    transform: rotate(var(--angle)) scale(1);
+  }
+  to {
+    transform: rotate(calc(var(--angle) + 5deg)) scale(1.05);
+  }
+}
+/* Flor margarita */
+.flower-daisy {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+.flower-daisy .petal {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: radial-gradient(circle, #ffdc3e, #ffd208);
+  border-radius: 50% 50% 50% 50%;
+  top: 15px;
+  left: 25px;
+  transform-origin: 15px 35px; /* pivote para rotar */
+}
+
+/* Distribución de 8 pétalos */
+.flower-daisy .petal:nth-child(1) { transform: rotate(0deg); }
+.flower-daisy .petal:nth-child(2) { transform: rotate(45deg); }
+.flower-daisy .petal:nth-child(3) { transform: rotate(90deg); }
+.flower-daisy .petal:nth-child(4) { transform: rotate(135deg); }
+.flower-daisy .petal:nth-child(5) { transform: rotate(180deg); }
+.flower-daisy .petal:nth-child(6) { transform: rotate(225deg); }
+.flower-daisy .petal:nth-child(7) { transform: rotate(270deg); }
+.flower-daisy .petal:nth-child(8) { transform: rotate(315deg); }
+
+/* Centro */
+.flower-daisy .center {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #6d4c41, #3e2723);
+  border-radius: 50%;
+  top: 45%;
+  left: 35%;
+  z-index: 1;
+}
+
+/* Versión reducida para fondo */
+.flower-daisy.small {
+  transform: scale(0.5);
+  opacity: 0.7;
+}
+
+.flower-daisy.falling {
+  z-index: 1;
+  position: absolute;
+  top: -100px; /* empieza fuera de la pantalla */
+  opacity: 0;  /* invisible al principio */
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1; /* aparece al iniciar la caída */
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg); /* cae hasta abajo */
+    opacity: 0.8;
+  }
+}
+
+
+
