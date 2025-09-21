@@ -77,19 +77,12 @@ body.celebration {
       /* Agrega una animación de pulsación */
       /* animation: pulsate 2s infinite; */
     }
-    .text-above {
-      font-family: 'Poppins', sans-serif;
-      font-size: 28px;
-      color: #ffeb3b; /* amarillo brillante */
-      text-shadow: 2px 2px 6px #d84315;
-    }
-
+    .text-above,
     .text-below {
       font-family: 'Poppins', sans-serif;
       font-size: 28px;
       font-weight: bold;
       color: #ffeb3b; /* amarillo brillante */
-      text-shadow: 2px 2px 6px #d84315;
     }
 
     .text-above, .text-below {
@@ -109,12 +102,21 @@ body.celebration {
 
     .text-above {
       z-index: 10;
-        top: -60px; /* Ajusta la posición vertical del texto arriba de la flor */
+        top: -100px; /* Ajusta la posición vertical del texto arriba de la flor */
     }
 
     .text-below {
         bottom: -100px; /* Ajusta la posición vertical del texto debajo de la flor */
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .text-above, .text-below {
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
     
     @keyframes pulsate {
       0% {
