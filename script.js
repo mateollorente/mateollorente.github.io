@@ -89,3 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+window.addEventListener("load", () => {
+    fetch(window.location.href, { cache: "no-store" })
+        .then(() => console.log("Cargando última versión"))
+        .catch(() => console.log("Error al recargar"));
+});
